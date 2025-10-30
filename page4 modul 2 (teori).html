@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 2: Teori | Hidrolisis Garam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box;}
+  :root {
+    --bg-primary:#f0f9ff;
+    --bg-secondary:#ffffff;
+    --text-primary:#1e293b;
+    --text-secondary:#475569;
+    --accent:#06b6d4;
+    --accent-hover:#0891b2;
+    --shadow:rgba(6,182,212,0.15);
+    --footer-bg:#ffffff;
+    --footer-text:#64748b;
+    --note-bg:#e0f7fa;
+    --note-text:#1e293b;
+  }
+  body {
+    font-family:'Poppins',sans-serif;
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    min-height:100vh;
+    transition:0.3s;
+  }
+  .header {
+    background:var(--bg-secondary);
+    padding:1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    box-shadow:0 2px 8px var(--shadow);
+    z-index:1000;
+  }
+  .logo-section {display:flex;align-items:center;gap:0.75rem;}
+  .theme-toggle {
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:0.4rem 1rem;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.3s;
+  }
+  .theme-toggle:hover {background:var(--accent-hover); transform:translateY(-2px);}
+  .nav-menu {display:flex;gap:1rem;}
+  .nav-btn {
+    background:transparent;
+    color:var(--text-primary);
+    border:2px solid var(--accent);
+    padding:0.5rem 1.5rem;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+  }
+  .nav-btn:hover {background:var(--accent); color:white; transform:translateY(-2px);}
+  .container {
+    max-width:950px;
+    margin:2rem auto 4rem auto;
+    padding:1.5rem 2rem;
+    background:var(--bg-secondary);
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+  }
+  h1, h2, h3 {
+    color:var(--accent);
+    margin-bottom:0.75rem;
+  }
+  h1 {text-align:center;}
+  p {
+    text-align:justify;
+    line-height:1.8;
+    color:var(--text-secondary);
+    margin-bottom:1rem;
+  }
+  ul {margin-left:1.5rem; color:var(--text-secondary); line-height:1.8;}
+  strong {color:var(--accent);}
+  .reaction {
+    background:rgba(6,182,212,0.1);
+    border-left:4px solid var(--accent);
+    padding:0.6rem 1rem;
+    margin:0.8rem 0;
+    border-radius:10px;
+    font-family:'Courier New', monospace;
+    color:var(--text-primary);
+  }
+  .note {
+    background:var(--note-bg);
+    border-left:4px solid var(--accent);
+    padding:0.8rem 1rem;
+    margin:1rem 0;
+    border-radius:10px;
+    color:var(--note-text);
+  }
+  .nav-bottom {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:2rem;
+  }
+  .nav-bottom a {
+    background:var(--accent);
+    color:white;
+    text-decoration:none;
+    padding:0.8rem 1.6rem;
+    border-radius:25px;
+    font-weight:600;
+    transition:0.3s;
+  }
+  .nav-bottom a:hover {background:var(--accent-hover); transform:translateY(-2px);}
+  footer {
+    background:var(--footer-bg);
+    color:var(--footer-text);
+    text-align:center;
+    padding:1.5rem 0;
+    box-shadow:0 -2px 8px var(--shadow);
+    transition:0.3s;
+  }
+  /* Dark mode */
+  .dark-mode {
+    --bg-primary:#0f172a;
+    --bg-secondary:#1e293b;
+    --text-primary:#f1f5f9;
+    --text-secondary:#cbd5e1;
+    --accent:#22d3ee;
+    --accent-hover:#06b6d4;
+    --shadow:rgba(34,211,238,0.25);
+    --footer-bg:#1e293b;
+    --footer-text:#f1f5f9;
+    --note-bg:#164e63;
+    --note-text:#e0faff;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50" />
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<!-- KONTEN -->
+<div class="container">
+  <h1>Modul 2: Teori Hidrolisis Garam</h1>
+
+  <p>
+    Larutan garam di dalam air dapat bersifat <strong>asam</strong>, <strong>basa</strong>, atau <strong>netral</strong>.  
+    Sifat ini muncul karena adanya <em>interaksi antara ion garam dengan air</em>.  
+    Saat garam dilarutkan, ia terionisasi menjadi kation dan anion.  
+    Jika ion-ion ini bereaksi dengan air, maka terjadilah reaksi yang disebut <strong>hidrolisis garam</strong>.
+  </p>
+
+  <h2>Kemungkinan Reaksi Hidrolisis</h2>
+  <ul>
+    <li><strong>a.</strong> Kation dari garam bereaksi dengan air menghasilkan <strong>ion H⁺</strong> → larutan bersifat <strong>asam</strong>.</li>
+    <li><strong>b.</strong> Anion dari garam bereaksi dengan air menghasilkan <strong>ion OH⁻</strong> → larutan bersifat <strong>basa</strong>.</li>
+    <li><strong>c.</strong> Kation dan anion tidak bereaksi dengan air → larutan bersifat <strong>netral</strong>.</li>
+  </ul>
+
+  <div class="note">
+    <strong>Catatan:</strong> Ion dari garam akan bereaksi dengan air hanya jika menghasilkan asam atau basa <em>lemah</em>.
+  </div>
+
+  <h2>🔹 Jenis-jenis Garam Berdasarkan Asal Asam dan Basanya</h2>
+
+  <h3>1. Garam dari Asam Lemah dan Basa Kuat</h3>
+  <p>
+    Garam ini menghasilkan anion dari asam lemah.  
+    Anion tersebut bereaksi dengan air menghasilkan <strong>ion OH⁻</strong>, sehingga larutan bersifat <strong>basa</strong>.
+  </p>
+  <div class="reaction">
+    CH₃COONa(aq) → CH₃COO⁻(aq) + Na⁺(aq)<br>
+    CH₃COO⁻(aq) + H₂O ⇌ CH₃COOH(aq) + OH⁻(aq)
+  </div>
+
+  <h3>2. Garam dari Asam Kuat dan Basa Lemah</h3>
+  <div class="reaction">
+    NH₄Cl(aq) → NH₄⁺(aq) + Cl⁻(aq)<br>
+    NH₄⁺(aq) + H₂O ⇌ NH₃(aq) + H₃O⁺(aq)
+  </div>
+  <p>
+    Ion NH₄⁺ menghasilkan H₃O⁺ sehingga larutan bersifat <strong>asam</strong>.  
+    Karena hanya sebagian ion yang terhidrolisis, disebut <strong>hidrolisis parsial</strong>.
+  </p>
+
+  <h3>3. Garam dari Asam Lemah dan Basa Lemah</h3>
+  <div class="reaction">
+    NH₄CN(aq) → NH₄⁺(aq) + CN⁻(aq)<br>
+    NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺<br>
+    CN⁻ + H₂O ⇌ HCN + OH⁻
+  </div>
+  <p>
+    Sifat larutan ditentukan oleh perbandingan <em>Ka</em> dan <em>Kb</em>:
+    <strong>Ka &gt; Kb → asam</strong>, dan <strong>Ka &lt; Kb → basa</strong>.
+  </p>
+
+  <h3>4. Garam dari Asam Kuat dan Basa Kuat</h3>
+  <div class="reaction">
+    NaCl(aq) → Na⁺ + Cl⁻
+  </div>
+  <p>Ion-ionnya tidak bereaksi dengan air, sehingga larutan bersifat <strong>netral</strong>.</p>
+
+  <div class="note">
+    <strong>Kesimpulan:</strong><br>
+    <ul>
+      <li>Asam lemah + Basa kuat → Garam <strong>basa</strong></li>
+      <li>Asam kuat + Basa lemah → Garam <strong>asam</strong></li>
+      <li>Asam lemah + Basa lemah → Garam <strong>asam/basa</strong> (tergantung Ka & Kb)</li>
+      <li>Asam kuat + Basa kuat → Garam <strong>netral</strong></li>
+    </ul>
+  </div>
+
+  <h2>Perhitungan Hidrolisis Garam</h2>
+  <p>
+    Untuk menentukan <strong>pH</strong> larutan garam yang mengalami hidrolisis, kita perlu menghitung
+    <strong>tetapan hidrolisis (Kh)</strong>.
+  </p>
+  <p>
+    Contoh 1: Garam <strong>CH₃COONa</strong> (asam lemah + basa kuat)<br>
+    Diketahui Ka (CH₃COOH) = 1,8 × 10⁻⁵
+  </p>
+  <div class="reaction">
+    Kh = Kw / Ka = 1×10⁻¹⁴ / 1,8×10⁻⁵ = 5,6×10⁻¹⁰
+  </div>
+  <p>
+    Jika konsentrasi garam 0,1 M, maka:
+    <br>[OH⁻] = √(Kh × C) = √(5,6×10⁻¹¹) = 7,5×10⁻⁶
+  </p>
+  <div class="reaction">
+    pOH = 5,12 → pH = 8,88 (larutan bersifat basa)
+  </div>
+
+  <p>
+    Contoh 2: Garam <strong>NH₄Cl</strong> (asam kuat + basa lemah)<br>
+    Diketahui Kb (NH₃) = 1,8×10⁻⁵
+  </p>
+  <div class="reaction">
+    Kh = Kw / Kb = 1×10⁻¹⁴ / 1,8×10⁻⁵ = 5,6×10⁻¹⁰
+  </div>
+  <p>
+    Jika konsentrasi garam 0,1 M:
+    <br>[H⁺] = √(Kh × C) = √(5,6×10⁻¹¹) = 7,5×10⁻⁶
+  </p>
+  <div class="reaction">
+    pH = 5,12 (larutan bersifat asam)
+  </div>
+
+  <div class="note">
+    Dari perhitungan di atas, terlihat bahwa <strong>jenis garam menentukan pH larutan</strong>:
+    <br>CH₃COONa → pH > 7 (basa),  
+    NH₄Cl → pH < 7 (asam).
+  </div>
+
+  <div class="nav-bottom">
+    <a href="page4 modul 1 (pendahuluan).html">⬅️ Sebelumnya</a>
+    <a href="page4 modul 3 (simulasi).html">Selanjutnya ➡️</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Tsary ▏ Universitas Negeri Malang
+</footer>
+
+<script>
+let isDarkMode = false;
+function toggleTheme(){
+  isDarkMode = !isDarkMode;
+  document.body.classList.toggle("dark-mode");
+  document.querySelector(".theme-toggle").textContent = isDarkMode ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+}
+</script>
+
+</body>
+</html>

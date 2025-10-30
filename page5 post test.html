@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pretest Hidrolisis Garam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{
+  --accent:#06b6d4;
+  --accent-hover:#0891b2;
+  --accent-light:#67e8f9;
+}
+body { font-family:'Poppins',sans-serif; margin:0; background: #f0f9ff; transition:0.3s; min-height:100vh; }
+.dark-mode body { background:#0f172a; color:#f1f5f9; }
+.header{background:#ffffff; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; box-shadow:0 2px 8px rgba(6,182,212,0.15); z-index:1000;}
+.logo-section{display:flex; align-items:center; gap:1rem;}
+.nav-menu{display:flex; gap:1rem;}
+.nav-btn{background:transparent; border:2px solid var(--accent); border-radius:25px; padding:0.5rem 1.5rem; cursor:pointer; font-weight:500; transition:0.3s;}
+.nav-btn:hover{background:var(--accent); color:white; transform:translateY(-2px);}
+.theme-toggle{background:var(--accent); color:white; border:none; padding:0.4rem 1rem; border-radius:20px; cursor:pointer; font-weight:500; transition:0.3s;}
+.theme-toggle:hover{background:var(--accent-hover); transform:translateY(-2px);}
+.back-header{display:flex; align-items:center; padding:1rem 2rem; margin-top:1rem;}
+.back-btn{background:var(--accent); color:white; border:none; padding:0.6rem 1.2rem; border-radius:25px; cursor:pointer; font-weight:500; transition:0.3s;}
+.back-btn:hover{background:var(--accent-hover); transform:translateY(-2px);}
+.option-btn{font-size:1.05rem;}
+</style>
+</head>
+<body>
+
+<!-- NAVIGASI ATAS -->
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50">
+    <button class="theme-toggle" id="darkModeToggle">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='2Beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='2Profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<!-- TOMBOL KEMBALI -->
+<div class="back-header">
+  <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-3xl mx-auto px-6 py-8">
+  <div id="quizContainer" class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 transition-colors duration-300">
+    <div class="mb-6">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-base font-medium text-gray-600 dark:text-gray-300">Progress</span>
+        <span id="progressText" class="text-base font-medium text-gray-600 dark:text-gray-300">1 / 5</span>
+      </div>
+      <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+        <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-300" style="width: 20%"></div>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 id="questionNumber" class="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-3">Pertanyaan 1</h2>
+      <p id="questionText" class="text-lg font-medium text-gray-800 dark:text-white leading-relaxed">Garam yang menghasilkan larutan basa saat dilarutkan dalam air adalah ...</p>
+    </div>
+
+    <div id="optionsContainer" class="space-y-4 mb-6">
+      <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="a">
+        <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">A.</span>
+        <span class="text-gray-800 dark:text-white">NaCl</span>
+      </button>
+      <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="b">
+        <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">B.</span>
+        <span class="text-gray-800 dark:text-white">HCl</span>
+      </button>
+      <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="c">
+        <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">C.</span>
+        <span class="text-gray-800 dark:text-white">NH₄Cl</span>
+      </button>
+      <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="d">
+        <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">D.</span>
+        <span class="text-gray-800 dark:text-white">CH₃COONa</span>
+      </button>
+    </div>
+
+    <div id="explanationSection" class="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg hidden">
+      <h3 class="font-semibold text-blue-800 dark:text-blue-300 mb-2">💡 Pembahasan</h3>
+      <p id="explanationText" class="text-gray-700 dark:text-gray-300"></p>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <button id="prevBtn" class="px-6 py-3 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 disabled:opacity-50 disabled:cursor-not-allowed" disabled>← Sebelumnya</button>
+      <button id="nextBtn" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed">Selanjutnya →</button>
+    </div>
+  </div>
+
+  <div id="resultsSection" class="bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8 mt-8 hidden transition-colors duration-300">
+    <div class="text-center mb-6">
+      <div class="text-6xl mb-2">🎉</div>
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">Kuis Selesai!</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300">Skor Anda: <span id="finalScore" class="font-bold text-indigo-600 dark:text-indigo-400">0/5</span></p>
+    </div>
+    <div class="mb-6">
+      <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4 text-center">📋 Review Jawaban</h3>
+      <div id="reviewContainer" class="space-y-4 max-h-96 overflow-y-auto"></div>
+    </div>
+    <div class="text-center">
+      <button id="restartBtn" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors duration-200">🔄 Mulai Ulang</button>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-center p-4 mt-8 shadow-inner">
+  &copy; 2025 Tsary ▏ Universitas Negeri Malang
+</footer>
+
+<script>
+let isDarkMode=false;
+const darkModeToggle=document.getElementById('darkModeToggle');
+darkModeToggle.addEventListener('click',()=>{
+  isDarkMode=!isDarkMode;
+  document.body.classList.toggle('dark-mode',isDarkMode);
+  darkModeToggle.textContent=isDarkMode?'☀️ Mode Terang':'🌙 Mode Gelap';
+});
+
+// Quiz data
+const quizData=[
+  {question:"Bagaimana ...", options:["NaCl","HCl","NH₄Cl","CH₃COONa"], correct:"d", explanation:"CH₃COONa berasal dari asam lemah (CH₃COOH) dan basa kuat (NaOH), sehingga larutan bersifat basa."},
+  {question:"Reaksi hidrolisis ion asetat (CH₃COO⁻) dalam air adalah ...", options:["CH₃COO⁻ + H₂O → CH₃COOH + H₃O⁺","CH₃COO⁻ + H₂O → CH₃COOH + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + H₃O⁺"], correct:"b", explanation:"Ion asetat bereaksi dengan air menghasilkan OH⁻."},
+  {question:"Larutan garam apakah yang bersifat netral ?", options:["NaCl","NH₄CN","NH₄Cl","NaF"], correct:"a", explanation:"NaCl berasal dari asam kuat dan basa kuat, sehingga larutan netral."},
+  {question:"Jika diketahui Ka asam asetat = 1,8 × 10⁻⁵ dan Kw = 1,0 × 10⁻¹⁴, berapakah nilai Kb ion asetat?", options:["5,56 × 10⁻¹⁰","1,8 × 10⁻¹⁰","5,56 × 10⁻⁵","1,8 × 10⁻⁵"], correct:"a", explanation:"Kb = Kw/Ka = 1,0 × 10^-14 / 1,8 × 10^-5 = 5,56 × 10^-10"},
+  {question:"Larutan NH₄Cl memiliki sifat ...", options:["Basa, karena ion Cl⁻ bereaksi menghasilkan OH⁻","Asam, karena ion Cl⁻ bereaksi menghasilkan H₃O⁺","Asam, karena ion NH₄⁺ bereaksi menghasilkan H₃O⁺","Basa, karena ion NH₄⁺ bereaksi menghasilkan OH⁻"], correct:"c", explanation:"Ion NH₄⁺ bereaksi menghasilkan H₃O⁺ sehingga larutan bersifat asam."}
+];
+
+// State
+let currentQuestion=0, userAnswers=[], score=0;
+
+// DOM
+const questionNumber=document.getElementById('questionNumber');
+const questionText=document.getElementById('questionText');
+const optionsContainer=document.getElementById('optionsContainer');
+const progressBar=document.getElementById('progressBar');
+const progressText=document.getElementById('progressText');
+const prevBtn=document.getElementById('prevBtn');
+const nextBtn=document.getElementById('nextBtn');
+const explanationSection=document.getElementById('explanationSection');
+const explanationText=document.getElementById('explanationText');
+const resultsSection=document.getElementById('resultsSection');
+const finalScore=document.getElementById('finalScore');
+const reviewContainer=document.getElementById('reviewContainer');
+const restartBtn=document.getElementById('restartBtn');
+
+function loadQuestion(){
+  const q=quizData[currentQuestion];
+  questionNumber.textContent=`Pertanyaan ${currentQuestion+1}`;
+  questionText.textContent=q.question;
+  explanationSection.classList.add('hidden');
+  const options=optionsContainer.querySelectorAll('.option-btn');
+  options.forEach((btn,i)=>{
+    btn.querySelector('span:last-child').textContent=q.options[i];
+    btn.classList.remove('border-green-500','bg-green-100','dark:bg-green-900','border-red-500','bg-red-100','dark:bg-red-900');
+    btn.classList.add('border-gray-200','dark:border-gray-600');
+    btn.disabled=false;
+  });
+  progressBar.style.width=`${((currentQuestion+1)/quizData.length)*100}%`;
+  progressText.textContent=`${currentQuestion+1} / ${quizData.length}`;
+  prevBtn.disabled=currentQuestion===0;
+  nextBtn.textContent=currentQuestion===quizData.length-1?'Selesai':'Selanjutnya →';
+  nextBtn.disabled=userAnswers[currentQuestion]===undefined;
+}
+
+function selectOption(selected){
+  const q=quizData[currentQuestion];
+  const options=optionsContainer.querySelectorAll('.option-btn');
+  options.forEach(btn=>{
+    btn.disabled=true;
+    const option=btn.dataset.option;
+    if(option===q.correct) btn.classList.add('border-green-500','bg-green-100','dark:bg-green-900');
+    else if(option===selected) btn.classList.add('border-red-500','bg-red-100','dark:bg-red-900');
+  });
+  userAnswers[currentQuestion]=selected;
+  if(selected===q.correct) score++;
+  explanationText.textContent=q.explanation;
+  explanationSection.classList.remove('hidden');
+  nextBtn.disabled=false;
+}
+
+function showResults(){
+  document.getElementById('quizContainer').style.display='none';
+  resultsSection.classList.remove('hidden');
+  finalScore.textContent=`${score}/${quizData.length}`;
+  reviewContainer.innerHTML='';
+  quizData.forEach((q,i)=>{
+    const ua=userAnswers[i];
+    const correct=ua===q.correct;
+    const optionLabels=['a','b','c','d'];
+    const correctText=q.options[optionLabels.indexOf(q.correct)];
+    const userText=ua? q.options[optionLabels.indexOf(ua)]:'Tidak dijawab';
+    const div=document.createElement('div');
+    div.className=`p-4 rounded-lg border-2 ${correct?'border-green-200 bg-green-50 dark:border-green-700 dark:bg-green-900/20':'border-red-200 bg-red-50 dark:border-red-700 dark:bg-red-900/20'}`;
+    div.innerHTML=`
+      <div class="flex items-start gap-3 mb-3">
+        <span class="text-2xl">${correct?'✅':'❌'}</span>
+        <div class="flex-1">
+          <h4 class="font-semibold text-gray-800 dark:text-white mb-2">Pertanyaan ${i+1}</h4>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">${q.question}</p>
+          <div class="text-sm space-y-1">
+            <p><strong>Jawaban Anda:</strong> <span class="${correct?'text-green-600 dark:text-green-400':'text-red-600 dark:text-red-400'}">${userText}</span></p>
+            <p><strong>Jawaban Benar:</strong> <span class="text-green-600 dark:text-green-400">${correctText}</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="pl-11">
+        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r">
+          <p class="text-sm text-gray-700 dark:text-gray-300"><strong>💡 Pembahasan:</strong> ${q.explanation}</p>
+        </div>
+      </div>
+    `;
+    reviewContainer.appendChild(div);
+  });
+}
+
+function restartQuiz(){
+  currentQuestion=0; userAnswers=[]; score=0;
+  resultsSection.classList.add('hidden');
+  document.getElementById('quizContainer').style.display='block';
+  loadQuestion();
+}
+
+optionsContainer.addEventListener('click',e=>{
+  if(e.target.classList.contains('option-btn')||e.target.closest('.option-btn')){
+    const btn=e.target.classList.contains('option-btn')?e.target:e.target.closest('.option-btn');
+    selectOption(btn.dataset.option);
+  }
+});
+
+prevBtn.addEventListener('click',()=>{
+  if(currentQuestion>0){currentQuestion--; loadQuestion();}
+});
+nextBtn.addEventListener('click',()=>{
+  if(currentQuestion<quizData.length-1){currentQuestion++; loadQuestion();}
+  else showResults();
+});
+restartBtn.addEventListener('click',restartQuiz);
+
+loadQuestion();
+</script>
+
+</body>
+</html>

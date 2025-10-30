@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 3 - Percobaan Hidrolisis Garam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-primary:#f0f9ff;
+  --bg-secondary:#ffffff;
+  --text-primary:#1e293b;
+  --text-secondary:#64748b;
+  --accent:#06b6d4;
+  --accent-hover:#0891b2;
+  --shadow:rgba(6,182,212,0.15);
+  --card-bg:#ffffff;
+  --card-text:#1e293b;
+  --footer-bg:#ffffff;
+  --footer-text:#64748b;
+  --table-header:#06b6d4;
+  --table-header-text:#ffffff;
+  --table-row:#f9fafb;
+}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  transition:0.3s;
+  min-height:100vh;
+}
+
+/* Header */
+.header{
+  background:var(--bg-secondary);
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 8px var(--shadow);
+  z-index:1000;
+}
+.logo-section{display:flex;align-items:center;gap:0.75rem}
+.theme-toggle{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:0.4rem 1rem;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:0.85rem;
+  transition:0.3s;
+}
+.theme-toggle:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.nav-menu{display:flex;gap:1rem;flex-wrap:wrap}
+.nav-btn{
+  background:transparent;
+  color:var(--text-primary);
+  border:2px solid var(--accent);
+  padding:0.5rem 1.5rem;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:500;
+  transition:0.3s;
+}
+.nav-btn:hover{background:var(--accent);color:white;transform:translateY(-2px)}
+
+/* Kembali */
+.back-header{display:flex;align-items:center;padding:1rem 2rem;margin-top:1rem}
+.back-btn{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:25px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:500;
+}
+.back-btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+.container{max-width:1100px;margin:1rem auto 3rem auto;padding:1rem}
+.card{
+  background:var(--card-bg);
+  color:var(--card-text);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom:20px;
+  transition:0.3s;
+}
+
+/* Heading disamakan dengan Modul 2 */
+h1{
+  text-align:center;
+  color:var(--accent);
+  font-size:2rem;
+  margin-bottom:0.5rem;
+  font-weight:700;
+}
+h2{
+  color:var(--text-primary);
+  border-left:5px solid var(--accent);
+  padding-left:10px;
+  margin-bottom:10px;
+  font-size:1.2rem;
+  font-weight:600;
+}
+p{text-align:justify;line-height:1.6;margin-bottom:10px}
+
+/* Tombol */
+.buttons button{
+  padding:10px 20px;
+  margin:5px;
+  font-weight:600;
+  border-radius:25px;
+  border:none;
+  cursor:pointer;
+  transition:all 0.3s;
+}
+.red{background:#f87171;color:white;}
+.red-light{background:#fecaca;color:#7f1d1d;}
+.blue{background:#60a5fa;color:white;}
+.blue-light{background:#bfdbfe;color:#1e3a8a;}
+
+/* Beaker */
+.beaker{width:120px;height:160px;border:4px solid gray;border-radius:0 0 30px 30px;position:relative;margin:10px auto;background:white;overflow:hidden;}
+.beaker-top{width:100%;height:8px;border-top:4px solid gray;border-left:4px solid gray;border-right:4px solid gray;border-radius:10px 10px 0 0;position:absolute;top:0;left:0;}
+.liquid{width:100%;height:140px;position:absolute;bottom:0;}
+.litmus{width:10px;height:120px;position:absolute;left:50%;transform:translateX(-50%);top:20px;border-radius:5px;transition:background 1s;display:none;}
+
+/* Hasil */
+.result{
+  margin-top:10px;
+  padding:15px;
+  border-radius:15px;
+  display:none;
+  background:var(--bg-secondary);
+  color:var(--card-text);
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Tombol uji larutan */
+button.test-btn{
+  width:100%;
+  padding:10px 0;
+  background:var(--accent);
+  color:white;
+  border-radius:25px;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  transition:all 0.3s;
+  margin-top:10px;
+}
+button.test-btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+button.test-btn:disabled{background:#ccc;color:#666;cursor:not-allowed;}
+
+/* Tabel */
+table{width:100%;border-collapse:collapse;margin-top:10px;display:none}
+th,td{border:1px solid #888;padding:8px;text-align:center;}
+th{background:var(--table-header);color:var(--table-header-text);}
+tr:nth-child(even){background:var(--table-row);}
+
+/* Navigasi bawah disamakan modul 2 */
+.nav-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:2rem;
+}
+.nav-bottom a{
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  padding:0.8rem 1.8rem;
+  border-radius:25px;
+  font-weight:600;
+  transition:0.3s;
+  min-width:150px;
+  text-align:center;
+}
+.nav-bottom a:hover{
+  background:var(--accent-hover);
+  transform:translateY(-2px);
+}
+
+/* Footer */
+footer{
+  background:var(--footer-bg);
+  color:var(--footer-text);
+  text-align:center;
+  padding:1.5rem 0;
+  margin-top:3rem;
+  box-shadow:0 -2px 8px var(--shadow);
+  transition:0.3s;
+}
+
+/* DARK MODE */
+.dark-mode{
+  --bg-primary:#0f172a;
+  --bg-secondary:#1e293b;
+  --text-primary:#f1f5f9;
+  --text-secondary:#cbd5e1;
+  --accent:#22d3ee;
+  --accent-hover:#06b6d4;
+  --shadow:rgba(34,211,238,0.25);
+  --card-bg:#1e293b;
+  --card-text:#f8fafc;
+  --footer-bg:#1e293b;
+  --footer-text:#f1f5f9;
+  --table-header:#22d3ee;
+  --table-header-text:#1e293b;
+  --table-row:#0f172a;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50" />
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<div class="back-header">
+  <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h1>Modul 3<br>Percobaan Hidrolisis Garam</h1>
+    <p>Pada modul ini, kamu akan melakukan simulasi untuk menguji sifat larutan garam menggunakan kertas lakmus merah dan biru. Dari hasil percobaan, kamu dapat menentukan apakah suatu garam bersifat asam, basa, atau netral berdasarkan reaksi hidrolisisnya.</p>
+  </div>
+
+  <div class="card">
+    <h2>Langkah 1: Pilih Kertas Lakmus</h2>
+    <div class="buttons">
+      <button id="red-lakmus" class="red-light">Lakmus Merah</button>
+      <button id="blue-lakmus" class="blue-light">Lakmus Biru</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Langkah 2: Celupkan Lakmus ke Larutan</h2>
+    <div id="beakers"></div>
+  </div>
+
+  <button id="reset" style="display:none;margin-top:10px;padding:10px 20px;border:none;background:var(--accent);color:white;border-radius:25px;cursor:pointer;">Reset Simulasi</button>
+
+  <div class="card" id="summary-card">
+    <h2>Rangkuman Hidrolisis Garam</h2>
+    <table id="summary-table">
+      <thead>
+        <tr>
+          <th>Garam</th>
+          <th>Reaksi Hidrolisis</th>
+          <th>Konstanta Kh</th>
+          <th>pH</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="nav-bottom">
+    <a href="page4 modul 2 (teori).html">⬅️ Sebelumnya</a>
+    <a href="page4 modul 4 (lkpd).html">Selanjutnya ➡️</a>
+  </div>
+</div>
+
+<footer>&copy; 2025 Tsary ▏ Universitas Negeri Malang</footer>
+
+<script>
+let isDarkMode=false;
+function toggleTheme(){
+  isDarkMode=!isDarkMode;
+  document.body.classList.toggle("dark-mode");
+  document.querySelector(".theme-toggle").textContent=isDarkMode?"☀️ Mode Terang":"🌙 Mode Gelap";
+}
+
+const garamData={
+  nacl:{nama:'NaCl',reaksi:'Na⁺ + Cl⁻ + H₂O → Tidak Bereaksi',Kh:'-',ph:'≈7',warna:'#e0f2ff',lakmusMerah:'Tetap Merah',lakmusBiru:'Tetap Biru'},
+  nh4cl:{nama:'NH₄Cl',reaksi:'NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺',Kh:'1.8×10⁻⁵',ph:'<7',warna:'#ffe0e0',lakmusMerah:'Tetap Merah',lakmusBiru:'Berubah Merah'},
+  nach3coo:{nama:'CH₃COONa',reaksi:'CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻',Kh:'5.6×10⁻¹⁰',ph:'>7',warna:'#e0ffe0',lakmusMerah:'Berubah Biru',lakmusBiru:'Tetap Biru'}
+};
+
+let selectedLakmus=null;
+
+const redButton=document.getElementById('red-lakmus');
+const blueButton=document.getElementById('blue-lakmus');
+const beakersDiv=document.getElementById('beakers');
+const resetBtn=document.getElementById('reset');
+
+redButton.addEventListener('click',()=>{selectedLakmus='merah';updateButtons();});
+blueButton.addEventListener('click',()=>{selectedLakmus='biru';updateButtons();});
+
+function updateButtons(){
+  redButton.className=selectedLakmus==='merah'?'red':'red-light';
+  blueButton.className=selectedLakmus==='biru'?'blue':'blue-light';
+}
+
+function createBeakers(){
+  beakersDiv.innerHTML='';
+  Object.entries(garamData).forEach(([key,data])=>{
+    const div=document.createElement('div');
+    div.className='card';
+    div.innerHTML=`
+      <h3>${data.nama}</h3>
+      <div class="beaker">
+        <div class="beaker-top"></div>
+        <div class="liquid" style="background:${data.warna};"></div>
+        <div class="litmus" id="litmus-${key}"></div>
+      </div>
+      <button id="test-${key}" class="test-btn">Uji Larutan</button>
+      <div class="result" id="result-${key}"></div>
+    `;
+    beakersDiv.appendChild(div);
+
+    document.getElementById(`test-${key}`).addEventListener('click',()=>{
+      if(!selectedLakmus){alert('Pilih kertas lakmus terlebih dahulu!');return;}
+      showResult(key);
+    });
+  });
+}
+
+function showResult(key){
+  const litmus=document.getElementById(`litmus-${key}`);
+  litmus.style.display='block';
+  litmus.style.background=(selectedLakmus==='merah')
+    ?(garamData[key].lakmusMerah.includes('Merah')?'#f87171':'#60a5fa')
+    :(garamData[key].lakmusBiru.includes('Biru')?'#60a5fa':'#f87171');
+
+  const resultDiv=document.getElementById(`result-${key}`);
+  resultDiv.style.display='block';
+  resultDiv.innerHTML=`
+    <strong>Garam:</strong> ${garamData[key].nama}<br>
+    <strong>Reaksi Hidrolisis:</strong> ${garamData[key].reaksi}<br>
+    <strong>Konstanta Hidrolisis (Kh):</strong> ${garamData[key].Kh}<br>
+    <strong>pH Larutan:</strong> ${garamData[key].ph}
+  `;
+  resetBtn.style.display='inline-block';
+  document.getElementById('summary-table').style.display='table';
+}
+
+resetBtn.addEventListener('click',()=>{
+  selectedLakmus=null;
+  updateButtons();
+  createBeakers();
+  resetBtn.style.display='none';
+  document.querySelectorAll('.result').forEach(r=>r.style.display='none');
+  document.getElementById('summary-table').style.display='none';
+});
+
+function createSummaryTable(){
+  const tbody=document.querySelector('#summary-table tbody');
+  tbody.innerHTML='';
+  Object.values(garamData).forEach(data=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${data.nama}</td><td>${data.reaksi}</td><td>${data.Kh}</td><td>${data.ph}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+createBeakers();
+createSummaryTable();
+</script>
+</body>
+</html>

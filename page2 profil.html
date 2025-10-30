@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Pengembang</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg-primary:#f0f9ff;
+    --bg-secondary:#ffffff;
+    --text-primary:#1e293b;
+    --text-secondary:#64748b;
+    --accent:#06b6d4;
+    --accent-hover:#0891b2;
+    --shadow: rgba(6,182,212,0.15);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height:100vh;
+    transition:0.3s;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .header {
+    background: var(--bg-secondary);
+    padding:1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: sticky;
+    top:0;
+    box-shadow:0 2px 8px var(--shadow);
+    z-index:1000;
+  }
+
+  .logo-section { display:flex; align-items:center; gap:0.75rem; }
+
+  .theme-toggle {
+    background: var(--accent);
+    color:white;
+    border:none;
+    padding:0.4rem 1rem;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.3s;
+  }
+
+  .theme-toggle:hover { background: var(--accent-hover); transform:translateY(-2px); }
+
+  .nav-menu { display:flex; gap:1rem; }
+
+  .nav-btn {
+    background:transparent;
+    color:var(--text-primary);
+    border:2px solid var(--accent);
+    padding:0.5rem 1.5rem;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+  }
+
+  .nav-btn:hover { background:var(--accent); color:white; transform:translateY(-2px); }
+
+  /* Tombol Kembali */
+  .back-header {
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:1rem 2rem;
+    margin-top:1rem;
+  }
+
+  .back-btn {
+    background: var(--accent);
+    color:white;
+    border:none;
+    padding:0.6rem 1.2rem;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:500;
+  }
+
+  .back-btn:hover { background:var(--accent-hover); transform:translateY(-2px); }
+
+  .container {
+    max-width:1000px;
+    margin:2rem auto;
+    padding:2rem;
+    flex:1;
+  }
+
+  .content-title {
+    text-align:center;
+    color:#667eea;
+    font-size:28px;
+    margin-bottom:25px;
+    font-weight:700;
+  }
+
+  .profile-container {
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:center;
+  }
+
+  .profile-card {
+    background: var(--bg-secondary);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.2);
+    max-width:400px;
+    text-align:center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow:0 25px 70px rgba(0,0,0,0.25);
+  }
+
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-8px); }
+  }
+
+  /* Avatar Emoji */
+  .profile-avatar {
+    font-size:70px;
+    margin-bottom:15px;
+  }
+
+  .profile-card h2 { color:#667eea; margin-bottom:10px; }
+
+  .content-text { color:var(--text-primary); line-height:1.6; margin-bottom:15px; }
+
+  /* Sosial Media */
+  .social-media {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:10px;
+  }
+
+  .social-media img {
+    width:30px;
+    height:30px;
+    transition: transform 0.3s;
+  }
+
+  .social-media img:hover { transform:scale(1.2); }
+
+  /* Footer */
+  footer {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    text-align:center;
+    padding:1.5rem 0;
+    margin-top:auto;
+    box-shadow:0 -2px 8px var(--shadow);
+    font-size:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.5rem;
+  }
+
+  footer .footer-divider {
+    width:60%;
+    height:1px;
+    background: var(--accent);
+    opacity:0.2;
+  }
+
+  footer p {
+    margin:0;
+  }
+
+  /* Mode Gelap */
+  .dark-mode {
+    --bg-primary:#0f172a;
+    --bg-secondary:#1e293b;
+    --text-primary:#f1f5f9;
+    --text-secondary:#cbd5e1;
+    --accent:#22d3ee;
+    --accent-hover:#06b6d4;
+    --shadow: rgba(34,211,238,0.25);
+  }
+
+  .dark-mode .profile-card { box-shadow:0 20px 60px rgba(34,211,238,0.15); }
+
+  .dark-mode footer { background:var(--bg-secondary); color:var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50" />
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<!-- Tombol Kembali -->
+<div class="back-header">
+  <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+</div>
+
+<!-- Konten Profil -->
+<div class="container">
+  <h1 class="content-title">Profil Pengembang</h1>
+  <div class="profile-container">
+
+    <!-- Profil -->
+    <div class="profile-card">
+      <div class="profile-avatar">👩‍💻</div>
+      <h2>Tsary Aqilah Arinanta</h2>
+      <div class="content-text">
+        <p>Mahasiswa di Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA), Universitas Negeri Malang (UM) dengan Program Studi S1 Pendidikan Kimia.</p>
+      </div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram"></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-divider"></div>
+  <p>&copy; 2025 Tsary Aqilah Arinanta ▏ Universitas Negeri Malang</p>
+</footer>
+
+<script>
+  let isDarkMode = false;
+  function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    document.body.classList.toggle("dark-mode");
+    document.querySelector(".theme-toggle").textContent =
+      isDarkMode ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+  }
+</script>
+
+</body>
+</html>

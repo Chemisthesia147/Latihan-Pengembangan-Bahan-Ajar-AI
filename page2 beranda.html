@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilihan Modul</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  :root {
+    --bg-primary:#f0f9ff;
+    --bg-secondary:#ffffff;
+    --text-primary:#1e293b;
+    --text-secondary:#64748b;
+    --accent:#06b6d4;
+    --accent-hover:#0891b2;
+    --shadow: rgba(6,182,212,0.15);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height:100vh;
+    transition:0.3s;
+  }
+
+  .header {
+    background: var(--bg-secondary);
+    padding: 1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position: sticky;
+    top:0;
+    box-shadow: 0 2px 8px var(--shadow);
+    z-index:1000;
+  }
+
+  .logo-section {
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+  }
+
+  .theme-toggle {
+    background: var(--accent);
+    color:white;
+    border:none;
+    padding:0.4rem 1rem;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:0.85rem;
+    transition:0.3s;
+  }
+
+  .theme-toggle:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+  .nav-menu {
+    display:flex;
+    gap:1rem;
+  }
+
+  .nav-btn {
+    background:transparent;
+    color:var(--text-primary);
+    border:2px solid var(--accent);
+    padding:0.5rem 1.5rem;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.3s;
+  }
+
+  .nav-btn:hover { background:var(--accent); color:white; transform:translateY(-2px); }
+
+  .back-header {
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    padding:1rem 2rem;
+    margin-top:1rem;
+  }
+
+  .back-btn {
+    background:var(--accent);
+    color:white;
+    border:none;
+    padding:0.6rem 1.2rem;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:500;
+  }
+
+  .back-btn:hover { background:var(--accent-hover); transform:translateY(-2px); }
+
+  .container {
+    max-width:900px;
+    margin:1rem auto 3rem auto;
+    padding:1rem;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:1.5rem;
+    justify-content:center;
+  }
+
+  .menu-card {
+    text-align:center;
+    background: var(--bg-secondary);
+    padding:2rem;
+    border-radius:15px;
+    box-shadow:0 4px 12px var(--shadow);
+    cursor:pointer;
+    transition:all 0.3s;
+    border:2px solid transparent;
+    min-height:160px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-decoration:none; /* hilangkan garis bawah */
+    color:var(--text-primary);
+  }
+
+  .menu-card:hover {
+    border-color: var(--accent);
+    background: var(--accent-hover);
+    color:white;
+    transform:translateY(-4px);
+  }
+
+  .menu-icon { font-size:2.5rem; margin-bottom:0.5rem; }
+
+  .menu-title { font-size:1.4rem; margin-bottom:0.4rem; }
+
+  .menu-desc { font-size:0.95rem; color: var(--text-secondary); }
+
+  footer {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    text-align:center;
+    padding:1.5rem 0;
+    margin-top:3rem;
+    box-shadow:0 -2px 8px var(--shadow);
+  }
+
+  /* Mode Gelap */
+  .dark-mode {
+    --bg-primary:#0f172a;
+    --bg-secondary:#1e293b;
+    --text-primary:#f1f5f9;
+    --text-secondary:#cbd5e1;
+    --accent:#22d3ee;
+    --accent-hover:#06b6d4;
+    --shadow: rgba(34,211,238,0.25);
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50" />
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<div class="back-header">
+  <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+</div>
+
+<div class="container">
+  <a href="page3 materi.html" class="menu-card">
+    <div class="menu-icon">📘</div>
+    <h3 class="menu-title">Materi</h3>
+    <p class="menu-desc">Materi Hidrolisis Garam</p>
+  </a>
+  <a href="page3 daftar pustaka.html" class="menu-card">
+    <div class="menu-icon">📑</div>
+    <h3 class="menu-title">Daftar Pustaka</h3>
+    <p class="menu-desc">Referensi dan sumber belajar</p>
+  </a>
+  <a href="page3 glosarium.html" class="menu-card">
+    <div class="menu-icon">📖</div>
+    <h3 class="menu-title">Glosarium</h3>
+    <p class="menu-desc">Kamus istilah dalam Hidrolisis Garam</p>
+  </a>
+</div>
+
+<footer>&copy; 2025 Tsary ▏ Universitas Negeri Malang</footer>
+
+<script>
+  let isDarkMode=false;
+  function toggleTheme() {
+    isDarkMode=!isDarkMode;
+    document.body.classList.toggle("dark-mode");
+    document.querySelector(".theme-toggle").textContent = isDarkMode ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+  }
+</script>
+
+</body>
+</html>

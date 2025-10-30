@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul 4 - LKPD Hidrolisis Garam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg-primary:#f0f9ff;
+  --bg-secondary:#ffffff;
+  --text-primary:#1e293b;
+  --text-secondary:#64748b;
+  --accent:#06b6d4;
+  --accent-hover:#0891b2;
+  --shadow:rgba(6,182,212,0.15);
+  --card-bg:#ffffff;
+  --card-text:#1e293b;
+  --footer-bg:#ffffff;
+  --footer-text:#64748b;
+}
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  transition:0.3s;
+  min-height:100vh;
+}
+
+/* HEADER */
+.header{
+  background:var(--bg-secondary);
+  padding:1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  box-shadow:0 2px 8px var(--shadow);
+  z-index:1000;
+}
+.logo-section{display:flex;align-items:center;gap:0.75rem}
+.theme-toggle{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:0.4rem 1rem;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:0.85rem;
+  transition:0.3s;
+}
+.theme-toggle:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.nav-menu{display:flex;gap:1rem;flex-wrap:wrap}
+.nav-btn{
+  background:transparent;
+  color:var(--text-primary);
+  border:2px solid var(--accent);
+  padding:0.5rem 1.5rem;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:500;
+  transition:0.3s;
+}
+.nav-btn:hover{background:var(--accent);color:white;transform:translateY(-2px)}
+
+/* KEMBALI */
+.back-header{display:flex;align-items:center;padding:1rem 2rem;margin-top:1rem}
+.back-btn{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:25px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:500;
+}
+.back-btn:hover{background:var(--accent-hover);transform:translateY(-2px)}
+
+.container{max-width:1100px;margin:1rem auto 3rem auto;padding:1rem}
+.card{
+  background:var(--card-bg);
+  color:var(--card-text);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  margin-bottom:20px;
+  transition:0.3s;
+}
+h1{text-align:center;color:var(--accent);font-size:2rem;margin-bottom:0.5rem;font-weight:700}
+h2{color:var(--text-primary);border-left:5px solid var(--accent);padding-left:10px;margin-bottom:10px;font-size:1.2rem;font-weight:600}
+p{text-align:justify;line-height:1.6;margin-bottom:10px}
+ul{margin-left:1.5rem;margin-bottom:10px}
+li{margin-bottom:6px}
+
+/* Textarea interaktif */
+textarea{
+  width:100%;
+  min-height:80px;
+  margin-top:8px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  padding:10px;
+  font-family:'Poppins',sans-serif;
+  resize:vertical;
+  transition:0.3s;
+}
+textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 5px var(--shadow)}
+
+/* NAV BOTTOM */
+.nav-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  margin-top:2rem;
+}
+.nav-bottom a{
+  background:var(--accent);
+  color:white;
+  text-decoration:none;
+  padding:0.8rem 1.8rem;
+  border-radius:25px;
+  font-weight:600;
+  transition:0.3s;
+  min-width:150px;
+  text-align:center;
+}
+.nav-bottom a:hover{
+  background:var(--accent-hover);
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+footer{
+  background:var(--footer-bg);
+  color:var(--footer-text);
+  text-align:center;
+  padding:1.5rem 0;
+  margin-top:3rem;
+  box-shadow:0 -2px 8px var(--shadow);
+  transition:0.3s;
+}
+
+/* DARK MODE */
+.dark-mode{
+  --bg-primary:#0f172a;
+  --bg-secondary:#1e293b;
+  --text-primary:#f1f5f9;
+  --text-secondary:#cbd5e1;
+  --accent:#22d3ee;
+  --accent-hover:#06b6d4;
+  --shadow:rgba(34,211,238,0.25);
+  --card-bg:#1e293b;
+  --card-text:#f8fafc;
+  --footer-bg:#1e293b;
+  --footer-text:#f1f5f9;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-section">
+    <img src="logo um rev.png" alt="Logo UM" width="50" height="50" />
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Mode Gelap</button>
+  </div>
+  <div class="nav-menu">
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
+  </div>
+</div>
+
+<!-- KEMBALI -->
+<div class="back-header">
+  <button class="back-btn" onclick="window.history.back()">← Kembali</button>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <h1>Modul 4<br>Lembar Kerja Peserta Didik (LKPD)</h1>
+    <p>Pada LKPD ini kamu akan berperan sebagai ilmuwan muda untuk membantu seorang petani menganalisis sifat larutan garam dalam pupuk. Gunakan pemahamanmu tentang konsep hidrolisis garam untuk menjawab pertanyaan dan menyelesaikan perhitungan!</p>
+  </div>
+
+  <div class="card">
+    <h2>Tujuan Pembelajaran</h2>
+    <ul>
+      <li>Menganalisis sifat larutan garam berdasarkan konsep hidrolisis.</li>
+      <li>Menuliskan reaksi hidrolisis yang terjadi.</li>
+      <li>Menghitung pH larutan garam hasil hidrolisis dengan tepat.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Indikator Pencapaian</h2>
+    <ul>
+      <li>Menjelaskan konsep hidrolisis garam dan jenis-jenisnya.</li>
+      <li>Menentukan sifat asam, basa, atau netral larutan garam.</li>
+      <li>Menuliskan reaksi hidrolisis garam.</li>
+      <li>Menghitung pH larutan hasil hidrolisis.</li>
+      <li>Menyimpulkan aplikasi hidrolisis garam dalam kehidupan sehari-hari.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Langkah-langkah Kegiatan</h2>
+    <ol>
+      <li>Memahami tujuan pembelajaran pada LKPD.</li>
+      <li>Membaca dan memahami kasus masalah yang diberikan.</li>
+      <li>Merumuskan pertanyaan-pertanyaan kunci.</li>
+      <li>Mempelajari materi hidrolisis garam yang tersedia di modul sebelumnya.</li>
+      <li>Menganalisis dan mengerjakan soal:</li>
+      <ul>
+        <li>Menentukan jenis garam dan reaksi hidrolisisnya.</li>
+        <li>Menghitung pH larutan jika diperlukan.</li>
+      </ul>
+      <li>Mendiskusikan hasil bersama kelompok dan membuat poster melalui Canva.</li>
+      <li>Mengumpulkan link poster pada form pengumpulan di bawah.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Orientasi pada Masalah</h2>
+    <p><em>Kasus:</em> Seorang petani menyiapkan larutan pupuk yang mengandung dua garam — natrium asetat (CH₃COONa) dan amonium klorida (NH₄Cl). Petani ingin memastikan bahwa larutan pupuknya memiliki pH sesuai agar tanaman tumbuh optimal.</p>
+    <p>Tugasmu adalah membantu petani menganalisis sifat larutan garam tersebut dan menentukan pH larutan yang dihasilkan!</p>
+  </div>
+
+  <div class="card">
+    <h2>Rumusan Masalah</h2>
+    <ul>
+      <li>Apa yang dimaksud dengan hidrolisis garam?</li>
+      <li>Bagaimana menentukan sifat larutan garam (asam, basa, netral)?</li>
+      <li>Bagaimana reaksi hidrolisis dari CH₃COONa dan NH₄Cl?</li>
+      <li>Bagaimana cara menghitung pH larutan hasil hidrolisis?</li>
+      <li>Apa aplikasi hidrolisis garam dalam kehidupan sehari-hari?</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Penyelidikan dengan Pakar</h2>
+    <p><strong>Pengertian Hidrolisis Garam</strong></p>
+    <textarea placeholder="Tuliskan hasil pengamatanmu di sini..."></textarea>
+    <p><strong>Jenis-jenis Hidrolisis Garam</strong></p>
+    <textarea placeholder="Tuliskan jenis-jenis hidrolisis garam yang kamu ketahui..."></textarea>
+    <p><strong>Reaksi Hidrolisis</strong></p>
+    <textarea placeholder="Tuliskan reaksi hidrolisis CH₃COONa dan NH₄Cl di sini..."></textarea>
+    <p><strong>Perhitungan pH</strong></p>
+    <textarea placeholder="Tuliskan langkah-langkah dan hasil perhitungan pH..."></textarea>
+    <p><strong>Aplikasi</strong></p>
+    <textarea placeholder="Berikan contoh aplikasi hidrolisis garam dalam kehidupan..."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>Gagasan Solusi Masalah</h2>
+    <p>Jelaskan hubungan antara asal asam-basa pembentuk garam dengan sifat larutan garam. Diskusikan penerapan hidrolisis garam dalam kehidupan sehari-hari, misalnya pada pertanian, industri makanan, atau pengolahan udara.</p>
+    <textarea placeholder="Tuliskan gagasan solusimu di sini..."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>Link Pengumpulan</h2>
+    <p>Silakan unggah link poster hasil diskusi kelompokmu pada form guru di bawah:</p>
+    <a href="#" target="_blank" style="color:var(--accent);font-weight:600;">➡️ Form Pengumpulan Google</a>
+  </div>
+
+  <div class="nav-bottom">
+    <a href="page4 modul 3 (simulasi).html">⬅️ Sebelumnya</a>
+    <a href="page4 modul 5 (latihan soal).html">Selanjutnya ➡️</a>
+  </div>
+
+</div>
+
+<footer>&copy; 2025 Tsary ▏ Universitas Negeri Malang</footer>
+
+<script>
+let isDarkMode=false;
+function toggleTheme(){
+  isDarkMode=!isDarkMode;
+  document.body.classList.toggle("dark-mode");
+  document.querySelector(".theme-toggle").textContent=isDarkMode?"☀️ Mode Terang":"🌙 Mode Gelap";
+}
+</script>
+</body>
+</html>
