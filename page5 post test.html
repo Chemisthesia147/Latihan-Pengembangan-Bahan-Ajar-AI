@@ -36,8 +36,8 @@ body { font-family:'Poppins',sans-serif; margin:0; background: #f0f9ff; transiti
     <button class="theme-toggle" id="darkModeToggle">🌙 Mode Gelap</button>
   </div>
   <div class="nav-menu">
-    <button class="nav-btn" onclick="window.location.href='2Beranda.html'">🏠 Beranda</button>
-    <button class="nav-btn" onclick="window.location.href='2Profil.html'">👤 Profil</button>
+    <button class="nav-btn" onclick="window.location.href='page2 beranda.html'">🏠 Beranda</button>
+    <button class="nav-btn" onclick="window.location.href='page2 profil.html'">👤 Profil</button>
   </div>
 </div>
 
@@ -80,6 +80,10 @@ body { font-family:'Poppins',sans-serif; margin:0; background: #f0f9ff; transiti
       <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="d">
         <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">D.</span>
         <span class="text-gray-800 dark:text-white">CH₃COONa</span>
+      </button>
+      <button class="option-btn w-full text-left p-4 rounded-lg border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-gray-700 transition-all duration-200 bg-white dark:bg-gray-700" data-option="d">
+        <span class="font-semibold text-indigo-600 dark:text-indigo-400 mr-3">E.</span>
+        <span class="text-gray-800 dark:text-white">CH₃COOH</span>
       </button>
     </div>
 
@@ -125,11 +129,126 @@ darkModeToggle.addEventListener('click',()=>{
 
 // Quiz data
 const quizData=[
-  {question:"Bagaimana ...", options:["NaCl","HCl","NH₄Cl","CH₃COONa"], correct:"d", explanation:"CH₃COONa berasal dari asam lemah (CH₃COOH) dan basa kuat (NaOH), sehingga larutan bersifat basa."},
-  {question:"Reaksi hidrolisis ion asetat (CH₃COO⁻) dalam air adalah ...", options:["CH₃COO⁻ + H₂O → CH₃COOH + H₃O⁺","CH₃COO⁻ + H₂O → CH₃COOH + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + H₃O⁺"], correct:"b", explanation:"Ion asetat bereaksi dengan air menghasilkan OH⁻."},
-  {question:"Larutan garam apakah yang bersifat netral ?", options:["NaCl","NH₄CN","NH₄Cl","NaF"], correct:"a", explanation:"NaCl berasal dari asam kuat dan basa kuat, sehingga larutan netral."},
-  {question:"Jika diketahui Ka asam asetat = 1,8 × 10⁻⁵ dan Kw = 1,0 × 10⁻¹⁴, berapakah nilai Kb ion asetat?", options:["5,56 × 10⁻¹⁰","1,8 × 10⁻¹⁰","5,56 × 10⁻⁵","1,8 × 10⁻⁵"], correct:"a", explanation:"Kb = Kw/Ka = 1,0 × 10^-14 / 1,8 × 10^-5 = 5,56 × 10^-10"},
-  {question:"Larutan NH₄Cl memiliki sifat ...", options:["Basa, karena ion Cl⁻ bereaksi menghasilkan OH⁻","Asam, karena ion Cl⁻ bereaksi menghasilkan H₃O⁺","Asam, karena ion NH₄⁺ bereaksi menghasilkan H₃O⁺","Basa, karena ion NH₄⁺ bereaksi menghasilkan OH⁻"], correct:"c", explanation:"Ion NH₄⁺ bereaksi menghasilkan H₃O⁺ sehingga larutan bersifat asam."}
+  {
+    question:"Konsentrasi ion H⁺ dalam larutan NH₄Cl 0,1 M (Kb NH₃ = 10⁻⁵) adalah …",
+    options:["10⁻³ M","10⁻⁵ M","10⁻⁷ M","10⁻⁹ M","10⁻¹¹ M"],
+    correct:"b",
+    explanation:"[H⁺] = (Kw/Kb) × M = (10⁻¹⁴ / 10⁻⁵) × 0,1 = 10⁻⁵ M."
+  },
+  {
+    question:"100 mL CH₃COOH 0,1 M dicampur dengan 100 mL NaOH 0,1 M (Ka = 10⁻⁵). pH campuran adalah …",
+    options:["5","6","8,85","9","7"],
+    correct:"d",
+    explanation:"Asam dan basa habis bereaksi membentuk CH₃COONa. pH larutan = 9."
+  },
+  {
+    question:"Tetapan hidrolisis (Kh) garam dari asam lemah (Ka = 2×10⁻⁵) dan basa kuat adalah …",
+    options:["5×10⁻¹⁰","2×10⁻⁵","10⁻¹⁴","5×10⁻⁹","2×10⁻⁹"],
+    correct:"a",
+    explanation:"Kh = Kw / Ka = 10⁻¹⁴ / (2×10⁻⁵) = 5×10⁻¹⁰."
+  },
+  {
+    question:"Jika pH larutan NaA 0,1 M adalah 9, maka nilai Ka asam HA adalah …",
+    options:["10⁻⁵","10⁻⁷","10⁻⁹","10⁻¹⁰","10⁻¹¹"],
+    correct:"a",
+    explanation:"pH 9 → pOH 5 → Ka = 10⁻⁵."
+  },
+  {
+    question:"Larutan garam berikut yang memiliki pH paling kecil adalah …",
+    options:["K₂SO₄","CH₃COONa","NH₄NO₃","KCN","NaHCO₃"],
+    correct:"c",
+    explanation:"NH₄NO₃ berasal dari basa lemah dan asam kuat sehingga paling asam."
+  },
+  {
+    question:"Reaksi NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺ menunjukkan bahwa …",
+    options:["Larutan bersifat basa","Larutan bersifat asam","Larutan netral","Amonia asam kuat","Air bertindak sebagai basa"],
+    correct:"b",
+    explanation:"Terbentuk ion H₃O⁺ sehingga larutan bersifat asam."
+  },
+  {
+    question:"pH larutan (NH₄)₂SO₄ 0,05 M (Kb NH₃ = 10⁻⁵) adalah …",
+    options:["5","5 − log 1","5 − log 10","9","7"],
+    correct:"a",
+    explanation:"[H⁺] = 10⁻⁵ sehingga pH = 5."
+  },
+  {
+    question:"Derajat hidrolisis (α) garam KCN 0,01 M (Ka = 10⁻¹⁰) adalah …",
+    options:["0,1%","1%","3%","10%","50%"],
+    correct:"d",
+    explanation:"α = Kh/M = 0,1 = 10%."
+  },
+  {
+    question:"Larutan CH₃COONa 0,1 M diencerkan menjadi 0,001 M. Perubahan pH adalah …",
+    options:["pH naik 1","pH turun 1","pH tetap","pH turun 2","pH naik 2"],
+    correct:"b",
+    explanation:"Pengenceran menurunkan [OH⁻] sehingga pH turun 1."
+  },
+  {
+    question:"Hubungan konsentrasi larutan NH₄Cl dengan pH adalah …",
+    options:["Konsentrasi naik → pH naik","Konsentrasi naik → pH turun","Konsentrasi tidak memengaruhi pH","pH selalu 7","pH selalu > 7"],
+    correct:"b",
+    explanation:"Semakin pekat NH₄Cl, semakin asam larutan."
+  },
+  {
+    question:"Garam NH₄CN memiliki Ka = 6,2×10⁻¹⁰ dan Kb = 1,8×10⁻⁵. Sifat larutannya adalah …",
+    options:["Asam","Basa","Netral","Amfoter","Tidak dapat ditentukan"],
+    correct:"b",
+    explanation:"Kb > Ka sehingga larutan bersifat basa."
+  },
+  {
+    question:"Massa CH₃COONa (Mr = 82) dalam 500 mL air agar pH = 9 adalah …",
+    options:["0,41 g","4,1 g","8,2 g","41 g","82 g"],
+    correct:"b",
+    explanation:"m = M × V × Mr = 4,1 g."
+  },
+  {
+    question:"Jika Kw = 10⁻¹², maka pH air murni adalah …",
+    options:["7","6","14","12","1"],
+    correct:"b",
+    explanation:"pKw = 12 → pH = 6."
+  },
+  {
+    question:"Campuran yang menghasilkan garam terhidrolisis sebagian dan bersifat basa adalah …",
+    options:["HCl + NaOH","HCl + NH₃","CH₃COOH + NaOH","CH₃COOH + NH₃","NaCl + air"],
+    correct:"c",
+    explanation:"Asam lemah + basa kuat menghasilkan garam basa."
+  },
+  {
+    question:"Kation dari basa kuat tidak terhidrolisis karena …",
+    options:["Afinitas tinggi terhadap OH⁻","Asam konjugasinya sangat lemah","Ukuran ion besar","Tidak larut","Tidak bermuatan"],
+    correct:"b",
+    explanation:"Asam konjugasinya sangat lemah sehingga tidak bereaksi dengan air."
+  },
+  {
+    question:"Nilai [H⁺][OH⁻] dalam larutan garam selalu …",
+    options:["Berubah","Sama dengan Kw","Nol","Lebih besar dari Kw","Lebih kecil dari Kw"],
+    correct:"b",
+    explanation:"Hasil kali ion air selalu sama dengan Kw."
+  },
+  {
+    question:"pH larutan CaF₂ 0,1 M (Ka HF = 10⁻⁴) adalah …",
+    options:["5","8,15","8,65","9","7"],
+    correct:"c",
+    explanation:"pH ≈ 8,65."
+  },
+  {
+    question:"Fungsi pemahaman hidrolisis dalam industri tekstil adalah …",
+    options:["Menentukan harga","Mengatur pH pewarna","Mempercepat penguapan","Memberi warna air","Menghilangkan serat"],
+    correct:"b",
+    explanation:"pH larutan pewarna harus dikontrol agar hasil optimal."
+  },
+  {
+    question:"Ion Al³⁺ terhidrolisis menghasilkan H⁺, sehingga larutan AlCl₃ bersifat …",
+    options:["Basa","Asam","Netral","Buffer","Amfoter"],
+    correct:"b",
+    explanation:"Ion Al³⁺ menghasilkan H⁺ sehingga larutan asam."
+  },
+  {
+    question:"Pernyataan yang benar tentang hidrolisis total adalah …",
+    options:["Asam kuat + basa lemah","pH selalu 7","Asam lemah + basa lemah","Tidak melibatkan air","Hanya garam netral"],
+    correct:"c",
+    explanation:"Hidrolisis total terjadi pada asam lemah dan basa lemah."
+  }
 ];
 
 // State
