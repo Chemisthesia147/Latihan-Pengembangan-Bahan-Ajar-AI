@@ -125,11 +125,126 @@ darkModeToggle.addEventListener('click',()=>{
 
 // Quiz data
 const quizData=[
-  {question:"Garam yang menghasilkan larutan basa saat dilarutkan dalam air adalah ...", options:["NaCl","HCl","NH₄Cl","CH₃COONa"], correct:"d", explanation:"CH₃COONa berasal dari asam lemah (CH₃COOH) dan basa kuat (NaOH), sehingga larutan bersifat basa."},
-  {question:"Reaksi hidrolisis ion asetat (CH₃COO⁻) dalam air adalah ...", options:["CH₃COO⁻ + H₂O → CH₃COOH + H₃O⁺","CH₃COO⁻ + H₂O → CH₃COOH + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + OH⁻","CH₃COO⁻ + H₂O → CH₃COO⁻ + H₃O⁺"], correct:"b", explanation:"Ion asetat bereaksi dengan air menghasilkan OH⁻."},
-  {question:"Larutan garam apakah yang bersifat netral ?", options:["NaCl","NH₄CN","NH₄Cl","NaF"], correct:"a", explanation:"NaCl berasal dari asam kuat dan basa kuat, sehingga larutan netral."},
-  {question:"Jika diketahui Ka asam asetat = 1,8 × 10⁻⁵ dan Kw = 1,0 × 10⁻¹⁴, berapakah nilai Kb ion asetat?", options:["5,56 × 10⁻¹⁰","1,8 × 10⁻¹⁰","5,56 × 10⁻⁵","1,8 × 10⁻⁵"], correct:"a", explanation:"Kb = Kw/Ka = 1,0 × 10^-14 / 1,8 × 10^-5 = 5,56 × 10^-10"},
-  {question:"Larutan NH₄Cl memiliki sifat ...", options:["Basa, karena ion Cl⁻ bereaksi menghasilkan OH⁻","Asam, karena ion Cl⁻ bereaksi menghasilkan H₃O⁺","Asam, karena ion NH₄⁺ bereaksi menghasilkan H₃O⁺","Basa, karena ion NH₄⁺ bereaksi menghasilkan OH⁻"], correct:"c", explanation:"Ion NH₄⁺ bereaksi menghasilkan H₃O⁺ sehingga larutan bersifat asam."}
+  {
+    question:"Di sebuah kolam renang ditambahkan kaporit (Ca(ClO)₂) yang membuat air terasa licin di kulit. Berdasarkan ciri tersebut, larutan kaporit bersifat ...",
+    options:["Netral","Asam","Basa","Tidak terhingga"],
+    correct:"c",
+    explanation:"Rasa licin merupakan ciri larutan basa. Kaporit berasal dari basa kuat dan asam lemah sehingga bersifat basa."
+  },
+  {
+    question:"Seorang petani menaburkan CaCO₃ untuk menetralkan tanah yang terlalu asam. Alasan penggunaan CaCO₃ adalah ...",
+    options:["Garam dari asam kuat dan basa kuat","Mengalami hidrolisis menghasilkan OH⁻","Tidak larut dalam air","Melepaskan ion H⁺"],
+    correct:"b",
+    explanation:"Ion CO₃²⁻ terhidrolisis menghasilkan OH⁻ sehingga dapat menetralkan tanah yang asam."
+  },
+  {
+    question:"Garam dapur (NaCl) digunakan untuk mengawetkan ikan tanpa mengubah rasa masam atau pahit. Hal ini menunjukkan bahwa NaCl ...",
+    options:["Terhidrolisis sempurna","Tidak mengalami hidrolisis","Terhidrolisis sebagian","Memiliki pH di bawah 7"],
+    correct:"b",
+    explanation:"NaCl berasal dari asam kuat dan basa kuat sehingga tidak mengalami hidrolisis dan bersifat netral."
+  },
+  {
+    question:"Larutan NH₄Cl diuji dengan kertas lakmus. Hasil yang paling mungkin adalah ...",
+    options:["Lakmus merah dan biru tidak berubah","Lakmus merah menjadi biru","Lakmus biru menjadi merah","Kedua lakmus menjadi kuning"],
+    correct:"c",
+    explanation:"NH₄Cl bersifat asam karena ion NH₄⁺ menghasilkan H₃O⁺ sehingga lakmus biru berubah menjadi merah."
+  },
+  {
+    question:"Prinsip dasar hidrolisis garam adalah reaksi antara ...",
+    options:["Air dengan molekul asam","Air dengan molekul basa","Ion garam dengan air","Endapan garam dengan logam"],
+    correct:"c",
+    explanation:"Hidrolisis merupakan reaksi ion dari garam dengan molekul air."
+  },
+  {
+    question:"Garam yang terbentuk dari asam kuat dan basa kuat akan memiliki pH ...",
+    options:["Sama dengan 7","Lebih besar dari 7","Lebih kecil dari 7","Bergantung jumlah air"],
+    correct:"a",
+    explanation:"Ion-ion dari asam kuat dan basa kuat tidak terhidrolisis sehingga larutan bersifat netral (pH = 7)."
+  },
+  {
+    question:"Spesi kimia yang menyebabkan larutan CH₃COONa bersifat basa adalah ...",
+    options:["Na⁺","CH₃COO⁻","H₂O","OH⁻"],
+    correct:"b",
+    explanation:"Ion asetat (CH₃COO⁻) bereaksi dengan air menghasilkan ion OH⁻."
+  },
+  {
+    question:"Mengapa air murni memiliki pH 7, tetapi air yang ditambahkan CH₃COONH₄ pH-nya dapat berubah?",
+    options:["Karena terjadi hidrolisis total","Karena garam tidak larut","Karena air menguap","Karena ion Na⁺ bereaksi dengan air"],
+    correct:"a",
+    explanation:"CH₃COONH₄ berasal dari asam lemah dan basa lemah sehingga kedua ionnya terhidrolisis (hidrolisis total)."
+  },
+  {
+    question:"Sifat larutan garam yang berasal dari asam lemah dan basa lemah ditentukan oleh ...",
+    options:["Konsentrasi garam","Volume air","Perbandingan Ka dan Kb","Suhu ruangan"],
+    correct:"c",
+    explanation:"Jika Ka > Kb larutan bersifat asam, jika Kb > Ka larutan bersifat basa."
+  },
+  {
+    question:"Sifat basa pada sabun yang mengandung natrium stearat disebabkan oleh ...",
+    options:["Reaksi ion stearat menghasilkan OH⁻","Logam natrium yang reaktif","Penambahan asam kuat","Sifat air yang digunakan"],
+    correct:"a",
+    explanation:"Ion stearat terhidrolisis menghasilkan OH⁻ sehingga larutan bersifat basa."
+  },
+  {
+    question:"Fenomena hujan asam dapat dinetralkan oleh batuan kapur di sungai karena batuan kapur bersifat ...",
+    options:["Asam","Basa","Netral","Tidak bereaksi"],
+    correct:"b",
+    explanation:"Batuan kapur (CaCO₃) bersifat basa sehingga dapat menetralkan hujan asam."
+  },
+  {
+    question:"Garam berikut yang tidak mengubah warna lakmus merah adalah ...",
+    options:["KCN","Na₂CO₃","(NH₄)₂SO₄","K₂SO₄"],
+    correct:"d",
+    explanation:"K₂SO₄ berasal dari asam kuat dan basa kuat sehingga bersifat netral."
+  },
+  {
+    question:"Gas NH₃ direaksikan dengan HCl hingga habis. Larutan yang dihasilkan akan ...",
+    options:["Terasa getir","Mengubah lakmus biru menjadi merah","Memiliki pH 14","Tidak menghantarkan listrik"],
+    correct:"b",
+    explanation:"Reaksi menghasilkan NH₄Cl yang bersifat asam sehingga mengubah lakmus biru menjadi merah."
+  },
+  {
+    question:"Ion yang tidak akan bereaksi dengan air (tidak terhidrolisis) adalah ...",
+    options:["CN⁻","NH₄⁺","Cl⁻","CO₃²⁻"],
+    correct:"c",
+    explanation:"Cl⁻ merupakan basa konjugasi dari asam kuat sehingga tidak terhidrolisis."
+  },
+  {
+    question:"Jika garam yang berasal dari asam kuat dan basa lemah dilarutkan dalam air, maka ...",
+    options:["Kation menghasilkan H⁺","Anion menghasilkan OH⁻","Tidak terjadi reaksi","Terbentuk endapan"],
+    correct:"a",
+    explanation:"Kation dari basa lemah (misalnya NH₄⁺) terhidrolisis menghasilkan ion H⁺."
+  },
+  {
+    question:"Pupuk ZA yang mengandung (NH₄)₂SO₄ jika digunakan terus-menerus akan menyebabkan pH tanah ...",
+    options:["Naik","Turun","Tetap","Menjadi netral"],
+    correct:"b",
+    explanation:"Ion NH₄⁺ terhidrolisis menghasilkan H⁺ sehingga tanah menjadi lebih asam."
+  },
+  {
+    question:"Larutan NaHCO₃ digunakan untuk meredakan asam lambung karena ...",
+    options:["Bersifat netral","Terhidrolisis menghasilkan sifat basa","Merupakan asam kuat","Tidak larut dalam air"],
+    correct:"b",
+    explanation:"Ion HCO₃⁻ bereaksi dengan air menghasilkan OH⁻ sehingga bersifat basa lemah."
+  },
+  {
+    question:"Secara etimologi, kata hidrolisis berarti ...",
+    options:["Penyatuan air","Penguapan air","Penguraian oleh air","Pembekuan air"],
+    correct:"c",
+    explanation:"Hidro berarti air dan lisis berarti penguraian."
+  },
+  {
+    question:"Jika Ka = Kb pada suatu garam yang mengalami hidrolisis total, maka pH larutan adalah ...",
+    options:["1","7","9","14"],
+    correct:"b",
+    explanation:"Kekuatan asam dan basa saling meniadakan sehingga larutan bersifat netral."
+  },
+  {
+    question:"Garam yang mengalami hidrolisis kation saja adalah ...",
+    options:["NaCl","CH₃COONa","NH₄Cl","CH₃COONH₄"],
+    correct:"c",
+    explanation:"NH₄Cl berasal dari basa lemah dan asam kuat sehingga hanya kationnya yang terhidrolisis."
+  }
 ];
 
 // State
@@ -193,7 +308,7 @@ function showResults(){
   quizData.forEach((q,i)=>{
     const ua=userAnswers[i];
     const correct=ua===q.correct;
-    const optionLabels=['a','b','c','d'];
+    const optionLabels=['a','b','c','d',e'];
     const correctText=q.options[optionLabels.indexOf(q.correct)];
     const userText=ua? q.options[optionLabels.indexOf(ua)]:'Tidak dijawab';
     const div=document.createElement('div');
